@@ -1,0 +1,12 @@
+Package: bigRR
+Type: Package
+Title: Ridge rigression (with special advantage for p >> n cases)
+Version: 1.1
+Date: 2011-10-03
+Author: Lars Ronnegard, Moudud Alam and Xia Shen
+Maintainer: Lars Ronnegard <lrn@du.se>
+Description: The package fits ridge regression for various distributions of response. The shrinkage parameters (lambdas) can be pre-specified or estimated. It gives possibility to shrink any subset of parameters in the model. It has special computational advantage for the cases when the number of shrinkage parameters exceeds the number of observations.
+Depends: hglm
+License: GPL
+LazyLoad: yes
+Packaged: 2011-10-03 11:39:19 UTC; Xia Shen
