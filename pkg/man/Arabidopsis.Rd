@@ -1,7 +1,7 @@
 \name{Arabidopsis}
 \docType{data}
 \alias{Arabidopsis}
-\title{Arabidopsis thaliana data from Atwell et al. 2010 \emph{Nature}}
+\title{Arabidopsis thaliana data set from Atwell et al. 2010 \emph{Nature}}
 \description{
 The \sQuote{Arabidopsis} data contains a binary disease-related phenotype of Arabidopsis and an incidence matrix of genotypes from a 250K SNP chip. 
 }
