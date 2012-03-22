@@ -1,6 +1,6 @@
 Package: bigRR
 Type: Package
-Title: Ridge rigression (with special advantage for p >> n cases)
+Title: Ridge Regression (with special advantage for p >> n cases)
 Version: 1.1
 Date: 2011-10-03
 Author: Lars Ronnegard, Moudud Alam and Xia Shen
