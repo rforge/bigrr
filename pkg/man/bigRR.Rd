@@ -44,3 +44,22 @@ The model can be specified by using \code{formula} or by design matrices. If bot
 \author{Lars Ronnegard, Moudud Alam and Xia Shen}
 
 \seealso{ \code{lm.ridge} in MASS library.}
+
+\examples{
+# --------------------------------------------- #  
+# Arabidopsis example #
+# --------------------------------------------- #  
+\dontrun{
+require(bigRR)
+data(Arabidopsis)
+X <- matrix(1, length(y), 1)
+GBLUP.result <- bigRR(y = y, X = X, Z = scale(Z), family = binomial(link = 'logit'))
+HEM.result <- bigRR.update(GBLUP.result, scale(Z))
+split.screen(c(1, 2))
+split.screen(c(2, 1), screen = 1)
+screen(3); plot(abs(GBLUP.result$u), cex = .6, col = 'slateblue')
+screen(4); plot(abs(HEM.result$u), cex = .6, col = 'olivedrab')
+screen(2); plot(abs(GBLUP.result$u), abs(HEM.result$u), cex = .6, pch = 19, col = 'darkmagenta')
+}
+}
+
