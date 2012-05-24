@@ -40,8 +40,10 @@ The model can be specified by using \code{formula} or by design matrices. If bot
   \item{leverage}{hat values}
   \item{Call}{how the bigRR was called.}
 }
-\references{ Ronnegard, L. (2010), }
-\author{Lars Ronnegard, Moudud Alam and Xia Shen}
+\references{
+Shen, X., Alam, M., Fikse, F. and Ronnegard, L. (2012). \emph{Fast generalized ridge regression for models including heteroscedastic effects in quantitative genetics}. Manuscript.
+}
+\author{Xia Shen, Moudud Alam, Lars Ronnegard}
 
 \seealso{ \code{lm.ridge} in MASS library.}
 
