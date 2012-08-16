@@ -19,5 +19,8 @@ hat.transf(C22, transf, vc, w, k, N, tol.err = 10^(-6))
   \item{tol.err}{ ~~Describe \code{tol.err} here~~ }
 }
 \details{
- See Ronnegard et al. (2010) for details.
+ See the reference paper for details.
+}
+\references{
+Shen, X., Alam, M., Fikse, F. and Ronnegard, L. (2012). \emph{Fast generalized ridge regression for models including heteroscedastic effects in quantitative genetics}. Manuscript.
 }

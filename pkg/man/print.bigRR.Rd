@@ -4,7 +4,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Print method for bigRR objects}
 \description{
-  A  prin tmethod for the object class bigRR
+A print method for the object class \code{bigRR}
 }
 \usage{
 \method{print}{bigRR}(x, ...)
@@ -15,5 +15,5 @@
   \item{\dots}{ arguments not used }
 }
 \details{
-  Provides a consise print of the elements of bigRR objects.
+  Provides a concise print of the elements of bigRR objects.
 }
