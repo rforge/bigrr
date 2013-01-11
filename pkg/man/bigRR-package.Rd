@@ -11,8 +11,8 @@ The package fits (general) ridge regression for various distributions of respons
 \tabular{ll}{
 Package: \tab bigRR\cr
 Type: \tab Package\cr
-Version: \tab 1.3-2\cr
-Date: \tab 2012-09-19\cr
+Version: \tab 1.3-3\cr
+Date: \tab 2013-01-11\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 }
