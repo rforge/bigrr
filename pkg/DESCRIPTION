@@ -1,12 +1,13 @@
 Package: bigRR
 Type: Package
 Title: Generalized Ridge Regression (with special advantage for p >> n cases)
-Version: 1.3-3
-Date: 2013-01-11
+Version: 1.3-4
+Date: 2013-02-15
 Author: Xia Shen, Moudud Alam and Lars Ronnegard
 Maintainer: Xia Shen <xia.shen@slu.se>
 Description: The package fits (general) ridge regression for various distributions of response. The shrinkage parameters (lambdas) can be pre-specified or estimated using an internal update routine (fitting a heteroscedastic effects model, or HEM). It gives possibility to shrink any subset of parameters in the model. It has special computational advantage for the cases when the number of shrinkage parameters exceeds the number of observations.
 Depends: hglm
+Suggests: gputools
 License: GPL
 LazyLoad: yes
 Packaged: 2012-03-23 08:39:19 UTC; Xia Shen

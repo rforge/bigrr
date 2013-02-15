@@ -2,19 +2,19 @@
 \alias{plot}
 \alias{plot.bigRR}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Print method for bigRR objects}
+\title{Plot method for bigRR objects}
 \description{
-  A plot method for the object class bigRR
+  A plot method for the objects of class "bigRR"
 }
 \usage{
-\method{plot}{bigRR}(obj, ...)
+\method{plot}{bigRR}(x, alpha = .36, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{obj}{A bigRR object }
-  \item{alpha}{Transparency}
-  \item{\dots}{ arguments not used }
+  \item{x}{A "bigRR" object.}
+  \item{alpha}{Transparency, ranged from 0 (completely transparent) to 1 (no transparency).}
+  \item{\dots}{ arguments not used.}
 }
 \details{
-  Plot bigRR objects.
+  Plot the bigRR objects returned by \code{bigRR} or \code{bigRR.update}.
 }

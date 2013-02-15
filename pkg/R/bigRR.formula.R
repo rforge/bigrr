@@ -1,6 +1,7 @@
 bigRR.formula <-
-function(formula=NULL, y=NULL, X=NULL, Z=NULL, data=NULL,shrink=NULL,
-lambda = NULL,tol.err = 1e-8, only.estimates=FALSE,...) {
+function(formula=NULL, y=NULL, X=NULL, Z=NULL, data=NULL,shrink=NULL,weight = NULL,
+		family = gaussian(link = identity), lambda = NULL,impute = FALSE, 
+		tol.err = 1e-6, tol.conv = 1e-8, only.estimates = FALSE, GPU = FALSE,...) {
 Call<-match.call()
 la<-lambda
 o.er<-tol.err

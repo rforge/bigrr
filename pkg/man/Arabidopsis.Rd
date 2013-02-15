@@ -11,6 +11,6 @@ The \sQuote{Arabidopsis} data contains a binary disease-related phenotype of Ara
  \item{Z}{A 84 times 216100 matrix of genotypes of the 84 inbred lines, with two different homozygotes coded as -1 and 1. 30 SNPs in the original data set that are fixed to only one homozygotic genotype were removed.}
 }
 }
-\source{Atwell, S., Y. S. Huang, B. J. Vilhjalmsson, G. Willems, M. Horton, et al., 2010 Genome-wide association study of 107 phenotypes in Arabidopsis thaliana inbred lines. \emph{Nature} 465: 627-631.}
-\references{Atwell, S., Y. S. Huang, B. J. Vilhjalmsson, G. Willems, M. Horton, et al., 2010 Genome-wide association study of 107 phenotypes in Arabidopsis thaliana inbred lines. \emph{Nature} 465: 627-631.}
+\source{Atwell, S., Y. S. Huang, B. J. Vilhjalmsson, G. Willems, M. Horton, et al., 2010. Genome-wide association study of 107 phenotypes in Arabidopsis thaliana inbred lines. \emph{Nature} 465: 627-631.}
+\references{Atwell, S., Y. S. Huang, B. J. Vilhjalmsson, G. Willems, M. Horton, et al., 2010. Genome-wide association study of 107 phenotypes in Arabidopsis thaliana inbred lines. \emph{Nature} 465: 627-631.}
 \keyword{datasets}

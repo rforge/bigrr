@@ -1,6 +1,6 @@
 bigRR.default <-
 function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
-    lambda = NULL, family = gaussian(link=identity), impute = FALSE, tol.err = 1e-6, 
+    family = gaussian(link = identity), lambda = NULL, impute = FALSE, tol.err = 1e-6, 
 	tol.conv = 1e-8, only.estimates = FALSE, GPU = FALSE, ...) 
 {
 
@@ -11,7 +11,7 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
         stop("Z should be a matrix.")
     if (!(is.vector(y))) 
         stop("y should be a vector.")
-	if (GPU & !require(gputools)) stop('Package gputools is needed for using GPU.\n')
+	if (GPU & !require(gputools, quietly = TRUE)) stop('Package gputools is needed for using GPU.\n')
 	if (any(is.na(y))) {
 		naidx <- which(is.na(y))
 		y <- y[-naidx]
@@ -50,7 +50,7 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
     L <- t(chol(G))
     phi0 <- sa0 <- 1
     if (is.null(lambda)) {
-        hm <- hglm(y = y, X = X, Z = L, family = family) ## checked with old emme code, conv = 1e-6 removed -- Xia
+        hm <- hglm(y = y, X = X, Z = L, family = family, conv = tol.conv) ## checked with old emme code, conv = 1e-6 removed -- Xia
     }
     else {
         start.beta = c(rep(0, p))

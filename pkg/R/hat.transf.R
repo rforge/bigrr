@@ -1,5 +1,5 @@
 hat.transf <-
-function(C22, transf, vc, w, k, N, tol.err = 1e-6) {
+function(C22, transf, vc, w, k, N, tol.err = 1e-6, GPU = FALSE) {
 	qu <- numeric(k)
 		middle <- diag(N) - C22/vc
 		eigen.test <- eigen(middle, only.values = TRUE)
@@ -10,7 +10,12 @@ function(C22, transf, vc, w, k, N, tol.err = 1e-6) {
 		#	if (min(eigen.test$values) < (-tol.err)) middle <- middle - (min(eigen.test$values) - tol.err)*diag(N)
 		#}
 		M <- chol(middle)
-		qu <- 1 - colSums(tcrossprod(M, transf)**2)/w
+		if (!GPU) {
+			qu <- 1 - colSums(tcrossprod(M, transf)**2)/w
+		}
+		else {
+			qu <- 1 - colSums(gpuMatMult(M, t(transf))**2)/w
+		}
 	return(qu)
 }
 
