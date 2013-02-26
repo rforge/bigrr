@@ -12,5 +12,6 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 	packageStartupMessage('            Moudud Alam - maa@du.se')
 	packageStartupMessage('            Lars Ronnegard - lrn@du.se')
 	packageStartupMessage('Maintainer: Xia Shen - xia.shen@slu.se')
+	packageStartupMessage('Use citation("bigRR") to know how to cite our work.')
 	options(warn = -1)
 }

@@ -7,7 +7,7 @@
 }
 \usage{
 bigRR.update(obj, Z, family = gaussian(link = identity), 
-             tol.err = 1e-6, tol.conv = 1e-8)
+             tol.err = 1e-6, tol.conv = 1e-8, GPU = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,7 @@ bigRR.update(obj, Z, family = gaussian(link = identity),
   \item{family}{ the distribution family of \code{y}, see \code{help('family')} for more details.}
   \item{tol.err}{ internal tolerance level for extremely small values; default value is 1e-6.}
   \item{tol.conv}{ tolerance level in convergence; default value is 1e-8.}
+  \item{GPU}{ logical; specify whether GPU should be used in computation. Note that the package \code{gputools} is required in this case, and the computer's graphic card needs to be CUDA-enabled. Check e.g. NVIDIA website for more information.}
 }
 \details{
  See the reference paper for details.
