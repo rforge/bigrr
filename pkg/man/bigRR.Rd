@@ -5,7 +5,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Fitting big ridge regression}
 \description{
-  Function fits big ridge regression with special computational advantage for the cases when number of shrinkage parameters exceeds number of observations. The shrinkage parameter, lambda, can be pre-specified or estimated along with the model. Any subset of model parameter can be shrunked.   
+  Function fits big ridge regression with special computational advantage for the cases when number of shrinkage parameters exceeds number of observations. The shrinkage parameter, lambda, can be pre-specified or estimated along with the model. Any subset of model parameter can be shrunk.   
 
 }
 \usage{
@@ -14,22 +14,22 @@ bigRR(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL,
       lambda = NULL, impute = FALSE, tol.err = 1e-6, tol.conv = 1e-8, 
       only.estimates = FALSE, GPU = FALSE, ...)
 \method{bigRR}{default}(formula = NULL, y , X , Z , data = NULL, 
-                        shrink = NULL, weight = NULL, family = gaussian(link = identity), 
-                        lambda = NULL, impute = FALSE, tol.err = 1e-6, tol.conv = 1e-8, 
-                        only.estimates = FALSE, GPU = FALSE, ...)
+      shrink = NULL, weight = NULL, family = gaussian(link = identity), 
+      lambda = NULL, impute = FALSE, tol.err = 1e-6, tol.conv = 1e-8, 
+      only.estimates = FALSE, GPU = FALSE, ...)
 \method{bigRR}{formula}(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, 
-                        shrink = NULL, weight = NULL, family = gaussian(link = identity), 
-                        lambda = NULL, impute = FALSE, tol.err = 1e-6, tol.conv = 1e-8, 
-                        only.estimates = FALSE, GPU = FALSE, ...)
+      shrink = NULL, weight = NULL, family = gaussian(link = identity), 
+      lambda = NULL, impute = FALSE, tol.err = 1e-6, tol.conv = 1e-8, 
+      only.estimates = FALSE, GPU = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{ a two-sided model \code{formula}. However, matrix input is recommended since it makes the inputs clear, i.e. to define \code{y}, \code{X} and \code{Z}.}
   \item{y}{ response variable; either y or \code{formula} is to be used.}
-  \item{X}{ design matrix related to the parameters not to be shrunk (i.e. fixed effects in the mixed model framework); not redundant if formula is already used.}
+  \item{X}{ design matrix related to the parameters not to be shrunk (i.e. fixed effects in the mixed model framework); not required if formula is already used.}
   \item{Z}{ design matrix associated with shrinkage parameters (i.e. random effects in the mixed model framework); not required if model formula is used.}
   \item{data}{ the data frame, usually useful when the input is in \code{formula}.}
-  \item{shrink}{ either a numeric or a character vector specifying the position or the names if the variables whose coefficients are to be shrunken.}
+  \item{shrink}{ either a numeric or a character vector specifying the position or the names if the variables whose coefficients are to be shrunk.}
   \item{weight}{ a vector of prior weights for each of the shrinkage parameters.}
   \item{family}{ the distribution family of \code{y}, see \code{help('family')} for more details.}
   \item{lambda}{ the shrinkage parameter determines the amount of shrinkage. Default is \code{NULL} meaning that it is to be estimated along with other model parameters. }
@@ -41,28 +41,29 @@ bigRR(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL,
   \item{\dots}{ unused arguments }
 }
 \details{
-The function fits ridge regression using the random effects model algorithm presented in Ronnegard et al. (2010). The computational intensity of the estimation depends on the number of parameters but not the number of observations.\cr \cr
+The function fits ridge regression (Shen et al. 2013) using the random effects model algorithm presented in Ronnegard et al. (2010). The computational intensity of the estimation depends on the number of parameters but not the number of observations.\cr \cr
 The model can be specified by using \code{formula} or by design matrices. If both are used then the formula interface will be used. The shrink argument specifies the subset of parameters  to be estimated. If the model is specified by using formula and a dot (.) is used in the right hand side of the formula then \code{shrink} indicates the variables in the data frame. Otherwise it represents the respective variable in the model formula. It is ignored it model is specified by using design matrices.\cr \cr
 When \code{impute = TRUE}, an easy (naive) way is used to impute the missing values in the \code{Z} matrix, i.e. missing values in each column is filled in by sampling from the distribution determined by the non-missing values. Note that observations with missing values in the response vector \code{y} are simply removed from the analysis.
 }
 \value{
   Returns a list of object class \code{bigRR} containing the following values: (see \bold{Examples} for how to use the estimated parameters for a prediction purpose.) 
  
-  \item{phi}{estimated residual variance.}
-  \item{lambda}{usual \code{lambda} parameter of the ridge regression representing the amount of shrinkage.}
+  \item{phi}{estimated residual variance (Non-genetic variance component).}
+  \item{lambda}{estimated random effect variance (Genetic variance component). which is proportional to the usual \code{lambda} parameter of the ridge regression representing the amount of shrinkage.}
   \item{beta}{fixed effects estimates - subset of model parameters which is/are not shrunk, i.e. those associated with the \code{X} matrix.}
-  \item{u}{random effects estimates - subset of model parameters which are shrunk, i.e. those associated with the \code{Z} matrix.}
-  \item{leverage}{hat values for the shrinkage parameters.}
+  \item{u}{random effects estimates (genetic effects of each marker) - subset of model parameters which are shrunk, i.e. those associated with the \code{Z} matrix.}
+  \item{leverage}{hat values for the random effects.}
+  \item{hglm}{the internal fitted \code{hglm} object for the linear mixed model.}
   \item{Call}{how the bigRR was called.}
 }
 \references{
-Shen X, Alam M, Fikse F and Ronnegard L (2013). \bold{A novel generalized ridge regression method for quantitative genetics}. \emph{Genetics}, online before print.\cr
+Shen X, Alam M, Fikse F and Ronnegard L (2013). \bold{A novel generalized ridge regression method for quantitative genetics}. \emph{Genetics}, \bold{193}, 1255-1268.\cr
 
 Ronnegard L, Shen X and Alam M (2010): \bold{hglm: A Package for Fitting Hierarchical Generalized Linear Models}. \emph{The R Journal}, \bold{2}(2), 20-28.
 }
 \author{Xia Shen, Moudud Alam, Lars Ronnegard}
 
-\seealso{ \code{lm.ridge} in MASS library.}
+\seealso{\code{lm.ridge} in MASS library.}
 
 \examples{
 # --------------------------------------------- #  
@@ -80,7 +81,7 @@ SNP.BLUP.result <- bigRR(y = y, X = X, Z = scale(Z),
 
 # fitting HEM, i.e. a generalized ridge regression with marker-specific shrinkage
 #
-HEM.result <- bigRR.update(SNP.BLUP.result, scale(Z), 
+HEM.result <- bigRR_update(SNP.BLUP.result, scale(Z), 
                            family = binomial(link = 'logit'))
 
 # plot and compare the estimated effects from both methods
