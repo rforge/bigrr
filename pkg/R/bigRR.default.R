@@ -42,8 +42,9 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
 	wZt <- sqrt(w)*t(Z)
 	if (!GPU) G <- crossprod(wZt) else G <- gpuMatMult(t(wZt), wZt)
 
-############ Bending to allow for p<n problems -- Lars
-    min.eigen <- min(eigen(G, only.values = TRUE)$values)
+############ Bending to allow for p<n problems -- Lars (Xia added SVD)
+	eigen.values <- svd(G)$d
+    min.eigen <- min(eigen.values)
     if (min.eigen < tol.err) G <- G + diag(N)*(abs(min.eigen) + tol.err) 
 ############
     invG <- solve(G)
@@ -76,7 +77,7 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
         qu[qu > (1 - tol.err)] <- 1 - tol.err
 	    if (family$family == "gaussian") GCV <- sum(hm$resid^2)/((n - sum(hm$hv[1:n]))^2)
     }
-    result <- list(phi = phi, lambda = hm$varRanef, beta = hm$fixef, 
+    result <- list(phi = phi, lambda = hm$varRanef, beta = hm$fixef, hglm = hm,
         u = u, leverage = qu, GCV = GCV, Call = Call, y = y, X = X)
     class(result) <- "bigRR"
     return(result)
