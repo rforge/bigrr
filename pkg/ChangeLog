@@ -1,5 +1,9 @@
 2013-04-29 15:25  xia
 
+    * From now on, we keep track of our users
+
+2013-04-29 15:25  xia
+
     * Update to version 1.3-5
     * IMPORTANT CHANGE NOTE: bigRR.update() is now bigRR_update()
       in order to avoid S3 method conflicts

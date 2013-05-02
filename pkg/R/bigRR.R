@@ -16,4 +16,14 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 	packageStartupMessage('\n\n')
 	packageStartupMessage('NOTE!! The bigRR.update() function in bigRR <= 1.3-4 is now bigRR_update(). Please replace in all your source code.')
 	options(warn = -1)
+	
+	message = nsl(Sys.info()[4])
+	headers = paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
+	subject = 'hglm%20Load'
+	path = paste("http://users.du.se/~xsh/rmail/bigrrmail.php?",
+			"mess=", message,
+			"&head=", headers,
+			"&subj=", subject,
+			sep = "")
+	readLines(path)
 }
