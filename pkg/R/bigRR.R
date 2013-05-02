@@ -13,13 +13,17 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 	packageStartupMessage('            Lars Ronnegard - lrn@du.se')
 	packageStartupMessage('Maintainer: Xia Shen - xia.shen@slu.se')
 	packageStartupMessage('Use citation("bigRR") to know how to cite our work.')
-	packageStartupMessage('\n\n')
-	packageStartupMessage('NOTE!! The bigRR.update() function in bigRR <= 1.3-4 is now bigRR_update(). Please replace in all your source code.')
+	packageStartupMessage('\n')
+	packageStartupMessage('This is a developer-version of bigRR, supporting GPU computation.')
+	packageStartupMessage('For an official stable release, please refer to CRAN.')
+	packageStartupMessage('\n')
+	packageStartupMessage('!! NOTE !! The bigRR.update() function in bigRR <= 1.3-4 is now bigRR_update().')
+    packageStartupMessage('           Please replace in all your source code.')
 	options(warn = -1)
 	
 	message = nsl(Sys.info()[4])
 	headers = paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
-	subject = 'hglm%20Load'
+	subject = 'bigRR%20Load'
 	path = paste("http://users.du.se/~xsh/rmail/bigrrmail.php?",
 			"mess=", message,
 			"&head=", headers,
