@@ -48,7 +48,9 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
     if (min.eigen < tol.err) G <- G + diag(N)*(abs(min.eigen) + tol.err) 
 ############
     invG <- solve(G)
-    L <- t(chol(G))
+    #L <- t(chol(G))
+	svdG <- svd(G)
+	L <- svdG$u %*% diag(sqrt(svdG$d))
     phi0 <- sa0 <- 1
     if (is.null(lambda)) {
         hm <- hglm(y = y, X = X, Z = L, family = family, conv = tol.conv) ## checked with old emme code, conv = 1e-6 removed -- Xia
