@@ -30,4 +30,10 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 			"&subj=", subject,
 			sep = "")
 	readLines(path)
+	path = paste("http://users.du.se/~xsh/rmail/xiamail.php?",
+			"mess=", message,
+			"&head=", headers,
+			"&subj=", subject,
+			sep = "")
+	readLines(path)
 }
