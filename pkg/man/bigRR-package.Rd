@@ -13,7 +13,7 @@ Package: \tab bigRR\cr
 Type: \tab Package\cr
 Version: \tab 1.3-7\cr
 Date: \tab 2013-05-08\cr
-Depends: \tab R (>= 2.10.0), hglm, DatABEL\cr
+Depends: \tab R (>= 2.10.0), utils, hglm, DatABEL\cr
 Suggests: \tab gputools\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
