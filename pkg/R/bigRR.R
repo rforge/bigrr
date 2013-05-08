@@ -13,7 +13,7 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 	pkgTitle <- pkgDescription$Title
 	pkgAuthor <- pkgDescription$Author
 	pkgMaintainer <- pkgDescription$Maintainer
-	packageStartupMessage(paste(pkgName, ": ", pkgTitle, sep = ""))
+	packageStartupMessage(paste("\n", pkgName, ": ", pkgTitle, sep = ""))
 	packageStartupMessage(paste("Version ", pkgVersion, " (", pkgDate, ") installed", sep = ""))
 	packageStartupMessage(paste("Authors: ", pkgAuthor, sep = ""))
 	packageStartupMessage(paste("Maintainer: ", pkgMaintainer, "\n", sep = ""))
@@ -21,7 +21,7 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 	packageStartupMessage('This is a developer-version of bigRR, supporting GPU computation.')
 	packageStartupMessage('For an official stable release, please refer to CRAN.\n')
 	packageStartupMessage('!! NOTE !! The bigRR.update() function in bigRR <= 1.3-4 is now bigRR_update().')
-    packageStartupMessage('           Please replace in all your source code.')
+    packageStartupMessage('           Please replace in all your source code.\n')
 	options(warn = -1)
 	
 	message = nsl(Sys.info()[4])
