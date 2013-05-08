@@ -4,19 +4,22 @@ function(formula = NULL, y = NULL, X = NULL, Z = NULL, data = NULL, shrink = NUL
 		tol.conv = 1e-8, only.estimates = FALSE, GPU = FALSE, ...) UseMethod("bigRR")
 
 .onAttach <- 
-		function(...)
+		function(lib, pkg, ...)
 {
-	packageStartupMessage("bigRR: Fast generalized ridge regression for p >> n data")
-	packageStartupMessage('Version 1.3-5 installed')
-	packageStartupMessage('Authors:    Xia Shen - xia.shen@slu.se')
-	packageStartupMessage('            Moudud Alam - maa@du.se')
-	packageStartupMessage('            Lars Ronnegard - lrn@du.se')
-	packageStartupMessage('Maintainer: Xia Shen - xia.shen@slu.se')
-	packageStartupMessage('Use citation("bigRR") to know how to cite our work.')
-	packageStartupMessage('\n')
+	pkgDescription <- packageDescription(pkg)
+	pkgVersion <- pkgDescription$Version
+	pkgDate <- pkgDescription$Date
+	pkgName <- pkgDescription$Package
+	pkgTitle <- pkgDescription$Title
+	pkgAuthor <- pkgDescription$Author
+	pkgMaintainer <- pkgDescription$Maintainer
+	packageStartupMessage(paste(pkgName, ": ", pkgTitle, sep = ""))
+	packageStartupMessage(paste("Version ", pkgVersion, " (", pkgDate, ") installed", sep = ""))
+	packageStartupMessage(paste("Authors: ", pkgAuthor, sep = ""))
+	packageStartupMessage(paste("Maintainer: ", pkgMaintainer, "\n", sep = ""))
+	packageStartupMessage('Use citation("bigRR") to know how to cite our work.\n')
 	packageStartupMessage('This is a developer-version of bigRR, supporting GPU computation.')
-	packageStartupMessage('For an official stable release, please refer to CRAN.')
-	packageStartupMessage('\n')
+	packageStartupMessage('For an official stable release, please refer to CRAN.\n')
 	packageStartupMessage('!! NOTE !! The bigRR.update() function in bigRR <= 1.3-4 is now bigRR_update().')
     packageStartupMessage('           Please replace in all your source code.')
 	options(warn = -1)
