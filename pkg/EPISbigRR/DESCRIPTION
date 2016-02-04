@@ -1,0 +1,11 @@
+Package: EPISbigRR
+Type: Package
+Title: Generalized Ridge Regression for Analaysis Epistatic Interactions
+Version: 1.0
+Date: 2015-09-05
+Author: Lars Ronnegard and Xia Shen
+Maintainer: Lars Ronnegard <lrn@du.se>
+Description: The package fits large-scale (generalized) ridge regression for large scale data including models for interaction effects.
+Depends: R (>= 2.10), utils, hglm, DatABEL
+License: GPL (>= 2)
+
