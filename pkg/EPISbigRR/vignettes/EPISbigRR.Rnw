@@ -1,0 +1,16 @@
+% $Id: EPISbigRR.Rnw $
+
+%\VignetteIndexEntry{The EPISbigRR Package}
+%\VignetteKeywords{EPISbigRR}
+%\VignettePackage{EPISbigRR}
+
+\documentclass{article}
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\includepdf[pages={1-6}, fitpaper=true]{tutorial.pdf}
+
+\end{document}
+

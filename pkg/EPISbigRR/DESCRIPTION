@@ -1,6 +1,6 @@
 Package: EPISbigRR
 Type: Package
-Title: Generalized Ridge Regression for Analaysis Epistatic Interactions
+Title: Generalized Ridge Regression for Analysis of Interaction Effects
 Version: 1.0
 Date: 2015-09-05
 Author: Lars Ronnegard and Xia Shen
