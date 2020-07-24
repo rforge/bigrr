@@ -1,4 +1,4 @@
-import("utils", "hglm", "DatABEL")
+import("utils", "hglm")
 export("bigRR", "bigRR_update", "hugeRR", "hugeRR_update")
 
 S3method(bigRR, default)
