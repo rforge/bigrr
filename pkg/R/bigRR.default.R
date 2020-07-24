@@ -74,7 +74,8 @@ function (formula = NULL, y, X, Z, data = NULL, shrink = NULL, weight = NULL,
     u <- (w*tZinvG)%*%a
     qu <- GCV <- NULL
     if (!only.estimates) {
-        C <- rbind(cbind(crossprod(X, X), crossprod(X, L)), cbind(crossprod(L, X), G + diag(N)*phi/sa))
+        # C <- rbind(cbind(crossprod(X, X), crossprod(X, L)), cbind(crossprod(L, X), G + diag(N)*phi/sa)) bug corrected 2018-09-05 -- Lars
+		C <- rbind(cbind(crossprod(X, X), crossprod(X, L)), cbind(crossprod(L, X), crossprod(L) + diag(N)*phi/sa))
         C22 <- solve(C)[(p + 1):(p + N), (p + 1):(p + N)]*phi
 		if (!GPU) transf <- (w*tZinvG) %*% L else transf <- gpuMatMult((w*tZinvG), L)
         qu <- hat.transf(C22, transf, vc = sa, w, k, N, tol.err = tol.err, GPU = GPU)
